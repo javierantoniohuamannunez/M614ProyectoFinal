@@ -3,40 +3,73 @@
 
 ## 1. Dades generals
 
-Nom del projecte:
+Nom del projecte: Desplegament Laravel - Projecte Javier i Alex
 
-Integrants:
+Integrants: Alex i Javier
 
-Tecnologia principal (Laravel / React / Fullstack):
+Tecnologia principal (Laravel / React / Fullstack): Laravel
 
-Enllaç al repositori:
+Enllaç al repositori: https://github.com/javierantoniohuamannunez/M614ProyectoFinal.git
 
 Data d’entrega:
 
 ## 2. Estat inicial del projecte
 
-Descriviu la situació del projecte abans de començar el treball de desplegament.
+El projecte original era una aplicació **Laravel funcional**, desenvolupada en un altre mòdul. Segons l’enunciat:
 
-Incloeu:
+> “En aquest projecte recuperareu una aplicació web desenvolupada en un altre mòdul… L’objectiu NO és desenvolupar funcionalitat nova complexa.”  
 
-- Estructura inicial del repositori
-- Problemes detectats (si n’hi havia)
-- Existència o no de .gitignore
-- Existència o no de Docker
-- Problemes de configuració o dependències
-Reflexió breu:
+### Estat inicial detectat:
+- L’aplicació funcionava correctament en local.
+- No hi havia cap configuració Docker.
+- El fitxer `.gitignore` era complet i adequat per a Laravel. Incloïa entrades com:
+```
+/vendor 
+/node_modules 
+/public/build
+```
+- No hi havia cap estructura de branques ni workflow Git professional.
+- No hi havia documentació clara d’execució.
 
-Què faltava perquè aquest projecte es pogués considerar “professional”?
+### Problemes detectats:
+- Falta de Docker → el projecte no era reproduïble en un altre ordinador.
+- Falta de workflow Git → tot estava en un únic estat inicial.
+- Falta de documentació tècnica.
+
+### Reflexió:
+El projecte funcionava, però **no era professional**. Tal com diu l’enunciat:
+
+> “Un projecte no és només funcional quan funciona, sinó quan és segur, mantenible i desplegable sense comprometre dades sensibles.”
+
+---
 
 ## 3. Workflow Git aplicat
 
-Expliqueu:
+Hem aplicat un workflow basat en branques:
 
-- Model de branques utilitzat
-- Convencions de noms
-- Estratègia de merge utilitzada
-- Ús (o no) de rebase
-- Incloeu exemples reals de commits rellevants (amb missatge i explicació del canvi).
+### Model de branques:
+- `main` → branca protegida, només rep merges via Pull Request.
+- `feature/...` → noves funcionalitats o tasques.
+- `fix/...` → correccions.
+
+### Convencions:
+- Noms de branques descriptius:  
+- `feature/estructura-inicial`  
+- `feature/preparacion-proyecto`
+- Missatges de commit curts i clars.
+
+### Estratègia de merge:
+- Sempre via Pull Request.
+- L’altre membre revisa abans de fer merge.
+
+### Exemples reals de commits:
+- “Organizo estructura inicial del projecte”
+- “Añado documentación base al README”
+- “Creo carpeta docs/ para documentación”
+
+Aquest procés compleix el requisit:
+
+> “El repositori ha d’incloure: ús de branques… mínim 2 Pull Requests o merges documentats.”
 
 ## 4. Conflicte 1 – Mateixa línia
 
