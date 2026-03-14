@@ -156,7 +156,7 @@ Entre las variables más importantes se encuentran:
  - DB_DATABASE=db_institut
  - DB_USERNAME=alex
  - DB_PASSWORD=alex
- 
+
  El archivo .env no se versiona en el repositorio, ya que puede contener información sensible como contraseñas, claves o configuraciones específicas del entorno.
 
 En su lugar, se incluye .env.example para que cualquier persona que clone el repositorio pueda crear su propio archivo .env basado en esta plantilla.
@@ -165,10 +165,31 @@ En su lugar, se incluye .env.example para que cualquier persona que clone el rep
 ### 6.3 Persistència (si s'escau)
 
 Expliqueu l’ús de volums.
+```
+Para garantizar que los datos de la base de datos no se pierdan cuando el contenedor se reinicia, se ha configurado un volumen Docker.
+
+En el archivo docker-compose.yml se define el volumen:
+
+ volumes:
+   dbdata:
+```
 
 ###  6.4 Problemes trobats
 
 Incloeu errors reals i com s’han resolt.
+```
+En el proceso tuve varios problemas, uno de los primero problemas fue la conexcion entre laravel y base de datos que no estaba configurado correctamente este problema se soliciono cambiando la varible DB_HOST=db en el archivo .env
+Luego otro problema fue que no habia una clave en la aplicacion de laravel APP_KEY que cuando querias levantar el servidor nos daba un error que no existia  una clabe de cifrado y se corrigio con este comando 
+   
+   php artisan key:generate
+
+Luego tuve otro problema con Vite, no habia varios archivos que no existian, y hacia que los archivos del frontend no se compilaban correctamente y para corregir solo se instalaron las dependencias de Node.js con estos comandos
+
+    npm install
+    npm run build
+
+Otro problema fue la que falta de Node.js y npm dentro del contenedor Docker, lo que no nos dejaba ejecutar los comandos necesarios para generar las configuración del frontend. Este problema se resolvió modificando el Dockerfile para instalar Node.js y npm dentro del contenedor
+```
 
 ## 7. Prova de desplegament des de zero
 
@@ -191,7 +212,15 @@ Indiqueu aproximadament:
 - Temps dedicat a Git
 - Temps dedicat a Docker
 - Temps dedicat a documentació
-
+ 
+```
+      Javier
+====================================
+Git workflow: 2 horas  
+Resolución de conflictos: 2 horas  
+Dockerización: 4 horas  
+Documentación: 2 horas
+```
 ## 10. Reflexió final
 
 Responeu breument:
