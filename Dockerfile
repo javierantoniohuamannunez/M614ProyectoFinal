@@ -16,17 +16,17 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copiar composer primero
-COPY composer.json composer.lock ./
-
-# Instalar dependencias PHP
-RUN composer install
-
-# Copiar el resto del proyecto
+# Copiar TODO el proyecto entero
 COPY . .
 
 # Crear .env
 RUN cp .env.example .env
+
+# Permitir composer como root
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
+# Instalar dependencias
+RUN composer install --no-interaction
 
 EXPOSE 8000
 
