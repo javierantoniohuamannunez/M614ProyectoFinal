@@ -16,7 +16,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copiar TODO el proyecto
+# Copiar TODO el proyecto entero
 COPY . .
 
 # Crear .env
