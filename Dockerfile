@@ -16,16 +16,18 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copiar proyecto
+# Copiar composer primero
+COPY composer.json composer.lock ./
+
+# Instalar dependencias PHP
+RUN composer install
+
+# Copiar el resto del proyecto
 COPY . .
 
-# Crear .env automáticamente
+# Crear .env
 RUN cp .env.example .env
-
-# Instalar dependencias de PHP
-RUN composer install
 
 EXPOSE 8000
 
-# Comandos que se ejecutan al iniciar el contenedor
 CMD npm install && npm run build && php artisan key:generate && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000
