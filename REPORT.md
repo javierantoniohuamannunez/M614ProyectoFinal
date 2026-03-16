@@ -178,8 +178,8 @@ En el archivo docker-compose.yml se define el volumen:
 
 Incloeu errors reals i com s’han resolt.
 ```
-En el proceso tuve varios problemas, uno de los primero problemas fue la conexcion entre laravel y base de datos que no estaba configurado correctamente este problema se soliciono cambiando la varible DB_HOST=db en el archivo .env
-Luego otro problema fue que no habia una clave en la aplicacion de laravel APP_KEY que cuando querias levantar el servidor nos daba un error que no existia  una clabe de cifrado y se corrigio con este comando 
+En el proyecto tuvimos varios problemas, uno de los primero problemas fue la conexcion entre laravel y base de datos que no estaba configurado correctamente este problema se soliciono cambiando la varible DB_HOST=db en el archivo .env
+Luego el otro problema fue que no habia una clave en la aplicacion de laravel APP_KEY que cuando querias levantar el servidor nos daba un error que no existia  una clabe de cifrado y se corrigio con este comando 
    
    php artisan key:generate
 
