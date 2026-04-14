@@ -31,3 +31,5 @@ RUN composer install --no-interaction
 EXPOSE 8000
 
 CMD npm install && npm run build && php artisan key:generate && php artisan migrate && php artisan serve --host=0.0.0.0 --port=8000
+
+# corregir el dockerfile quitar dependencias innecesario, corregir el cmd y usar el apache, agregar el nuevo readme explicando como poder  ..... terminar el readme
