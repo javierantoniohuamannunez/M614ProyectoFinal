@@ -25,7 +25,7 @@ RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available
 RUN cp .env.example .env
 
 # Instalar dependencias 
-## RUN composer install
+RUN composer install
 
 # Permisos básicos
 RUN chown -R www-data:www-data /var/www/html
