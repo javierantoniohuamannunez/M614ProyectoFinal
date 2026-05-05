@@ -1,6 +1,6 @@
 FROM php:8.3-apache
 
-# Instalar solo lo necesario
+# Instalar dependencias
 RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y \
 RUN a2enmod rewrite
 
 # Instalar Composer
-#COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Directorio de trabajo
 WORKDIR /var/www/html
@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 # Copiar proyecto
 COPY . .
 
-# Configurar Apache para Laravel (carpeta public)
+# Configurar Apache
 RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
 # Crear .env
@@ -27,7 +27,7 @@ RUN cp .env.example .env
 # Instalar dependencias 
 RUN composer install
 
-# Permisos básicos
+# Permisos 
 RUN chown -R www-data:www-data /var/www/html
 
 # Exponer puerto
