@@ -3,7 +3,7 @@ services:
 
   app:
     build: .
-    container_name:
+    container_name: M614Proyecto
     ports:
       - "8000:80"
     depends_on:
@@ -16,7 +16,7 @@ services:
 
   db:
     image: mysql:8
-    container_name: 
+    container_name: laravel-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
