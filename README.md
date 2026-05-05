@@ -90,17 +90,6 @@ http://localhost:8000
 
 Una vez el proyecto funcione, se necesita realizar algunas configuraciones iniciales:
 
-### Compilación de assets (Vite)
-
-Antes de ejecutar el proyecto, es necesario compilar los recursos frontend:
-
-```bash
-npm install
-npm run build
-```
-
-Esto generará la carpeta public/build necesaria para que Laravel funcione correctamente.
-
 Generar la clave de la aplicación Laravel:
 
 ```bash
