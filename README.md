@@ -2,35 +2,32 @@
 
 Aplicación web desarrollada con Laravel que permite gestionar diferentes entidades educativas de forma sencilla y organizada:
 
-* Alumnes
-* Professors
-* Mòduls
-* Grups
+- Alumnes
+- Professors
+- Mòduls
+- Grups
 
 El sistema incluye autenticación de usuarios y control de acceso basado en roles, lo que nos ayuda a restringir ciertas funciones dependiendo el tipo de usuario.
-
 
 ## Tecnologías utilizadas
 
 Este proyecto se desarrollo utilizando las estas tecnologias:
 
-* PHP 8.3
-* Laravel 
-* MySQL 
-* Docker 
-* Apache 
+- PHP 8.3
+- Laravel
+- MySQL
+- Docker
+- Apache
 
-
-##  Requisitos
+## Requisitos
 
 Antes de comenzar, asegúrate de tener instalado en tu sistema:
 
-* Docker
-* Docker Compose
-* Git
+- Docker
+- Docker Compose
+- Git
 
-
-##  Instalación de Docker y Docker Compose
+## Instalación de Docker y Docker Compose
 
 ### 🔹 En Ubuntu / Linux
 
@@ -66,8 +63,7 @@ docker --version
 docker-compose --version
 ```
 
-
-##  Instalación y ejecución del proyecto
+## Instalación y ejecución del proyecto
 
 1. Clonar el repositorio:
 
@@ -90,10 +86,20 @@ Este comando descargará las imágenes necesarias, contruira el entorno y levant
 http://localhost:8000
 ```
 
-
-##  Configuración inicial
+## Configuración inicial
 
 Una vez el proyecto funcione, se necesita realizar algunas configuraciones iniciales:
+
+### Compilación de assets (Vite)
+
+Antes de ejecutar el proyecto, es necesario compilar los recursos frontend:
+
+```bash
+npm install
+npm run build
+```
+
+Esto generará la carpeta public/build necesaria para que Laravel funcione correctamente.
 
 Generar la clave de la aplicación Laravel:
 
@@ -113,50 +119,46 @@ docker exec -it M614Proyecto php artisan migrate
 docker exec -it M614Proyecto php artisan db:seed
 ```
 
-
-##  Autenticación y roles
+## Autenticación y roles
 
 El sistema incluye un sistema de autenticación que permite:
 
-* Registro de usuarios
-* Inicio de sesión
-* Protección de rutas
+- Registro de usuarios
+- Inicio de sesión
+- Protección de rutas
 
 Además, se implementa control de acceso por roles:
 
-* Usuarios normales: acceso limitado
-* Administradores: acceso completo a la gestión de datos
+- Usuarios normales: acceso limitado
+- Administradores: acceso completo a la gestión de datos
 
-
-##  Estructura del proyecto
+## Estructura del proyecto
 
 El proyecto sigue la estructura estándar de Laravel:
 
-* `app/Http/Controllers` → Controladores que gestionan la lógica de la aplicación
-* `resources/views` → Vistas Blade o lo que ve el usuario
-* `routes/web.php` → Donde se defina todas las rutas web
-* `database/migrations` → Migraciones de base de la datos
-* `Dockerfile` → Configuración del contenedor de Laravel
-* `docker-compose.yml` → Definición de servicios de Laravel y MySQL
+- `app/Http/Controllers` → Controladores que gestionan la lógica de la aplicación
+- `resources/views` → Vistas Blade o lo que ve el usuario
+- `routes/web.php` → Donde se defina todas las rutas web
+- `database/migrations` → Migraciones de base de la datos
+- `Dockerfile` → Configuración del contenedor de Laravel
+- `docker-compose.yml` → Definición de servicios de Laravel y MySQL
 
-
-##  Uso de Docker en el proyecto
+## Uso de Docker en el proyecto
 
 Docker permite ejecutar la aplicación en un entorno aislado sin necesidad de instalar dependencias manualmente en el sistema.
 
 El proyecto utiliza:
 
-* Apache como servidor web
-* PHP 8.3 para ejecutar Laravel
-* MySQL como sistema de base de datos
+- Apache como servidor web
+- PHP 8.3 para ejecutar Laravel
+- MySQL como sistema de base de datos
 
 Ventajas de usar Docker:
 
-* Muy facil el despliegue
-* Evita conflictos de versiones
+- Muy facil el despliegue
+- Evita conflictos de versiones
 
-
-##  Comandos útiles
+## Comandos útiles
 
 Parar los contenedores:
 
@@ -175,4 +177,3 @@ Acceder al contenedor:
 ```bash
 docker exec -it M614Proyecto bash
 ```
-
