@@ -21,6 +21,7 @@ RUN cp .env.example .env
 RUN composer install
 # instalar npm vite
 RUN apt-get install -y nodejs npm
+RUN npm install && npm run build
 # permisos 
 RUN chown -R www-data:www-data /var/www/html
 # exponer puerto
